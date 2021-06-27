@@ -6,55 +6,66 @@ import java.util.Set;
 
 import org.hibernate.Session;
 
+import com.Model.Directeur;
 import com.Model.Salarie;
-import com.Model.Produit;
+import com.Service.DirecteurService;
 import com.Service.SalarieService;
 import com.Service.ChambreService;
 
 public class Principale {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	
 
-		SalarieService cs = new  SalarieService();
-		Salarie c1 = new Salarie("Dupond", "Jean");
+		// appel et creation d un directeur
+		DirecteurService ds = new  DirecteurService();
+		Directeur d1 = new Directeur("Dupond", "Jean", null);
 		
-		Produit p1 = new Produit("Sony", "S520", "01/06/2021", 850, "appareil neuf type telephone");
-		Produit p2 = new Produit("Nokia", "N70", "14/06/2021", 850, "appareil neuf type telephone");
 		
-		Set<Produit> ListP = new HashSet<Produit>();
-		ListP.add(p1);
-		ListP.add(p2);
+		SalarieService ss = new  SalarieService();
 		
-		c1.setProduits(ListP);
+		// appel et creation de nouveau employes
+		Salarie s1 = new Salarie("Berger", "Antoine", 1400, 3);
+		Salarie s2 = new Salarie("Dumez", "Justine", 1700, 10);
+		Salarie s3 = new Salarie("Durand", "Julien", 2100, 16);
+		
+		// ajout des employes a la liste d employés
+		Set<Salarie> ListS = new HashSet<Salarie>();
+		ListS.add(s1);
+		ListS.add(s2);
+		ListS.add(s3);
+		
+		d1.setSalaries(ListS);
 		
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction();
 		
-		cs.create(c1);
+		ds.create(d1);
+		
+			
 		
 		//cs.delete(session, 3);
 		//c1.setPrenom("Paul");
 		//cs.update(session, 2);
-		Salarie c2 = cs.findById(session, 1);
-		System.out.println("nom : " + c2.getNom() + ", prenom" + c2.getPrenom() + ", liste produit :" + c2.getProduits().toString());
+		/*Directeur c2 = ds.findById(session, 1);
+		System.out.println("nom : " + c2.getNom() + ", prenom" + c2.getPrenom() + ", liste produit :" + c2.getSalaries().toString());
 		
 		
-		List<Salarie> listeC = cs.findAll(session);
-		for(Salarie cli : listeC) {
+		List<Directeur> listeC = ds.findAll(session);
+		for(Directeur cli : listeC) {
 			System.out.println("nom : " + cli.getNom() + ", prenom" + cli.getPrenom());
 		}
 		
 		ChambreService ps = new ChambreService();
-		Produit prod1 = ps.findById(session, 1);
+		Salarie prod1 = ps.findById(session, 1);
 		System.out.println("reference : " + prod1.getReference() + ", prix" + prod1.getPrix());
 
 
-		List<Produit> listeProd = ps.findAll(session);
+		List<Salarie> listeProd = ps.findAll(session);
 		
-		for(Produit pr : listeProd) {
+		for(Salarie pr : listeProd) {
 			System.out.println("reference : " + pr.getReference() + ", prix" + pr.getPrix());
-		}
+		}*/
 		
 		
 		

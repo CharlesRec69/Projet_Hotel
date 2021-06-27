@@ -54,7 +54,7 @@ public class HotelService implements Serializable{
 	
 	public List<Hotel> findAll(Session s){
 		
-		Query q = s.createQuery("from Directeur");
+		Query q = s.createQuery("from Hotel");
 		List<Hotel> listeC = q.list();
 		return listeC;
 	}

@@ -31,7 +31,7 @@ public class Directeur {
 	private String prenom;
 	
 
-	
+	/* un directeur pour plusieurs salaries */
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="directeur_id")
 	private Set<Salarie> salaries;
@@ -43,7 +43,7 @@ public class Directeur {
 	}
 
 
-	public Directeur(String nom, String prenom, float salaire, int experience, Set<Salarie> salaries) {
+	public Directeur(String nom, String prenom, Set<Salarie> salaries) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -99,6 +99,7 @@ public class Directeur {
 	public void setSalaries(Set<Salarie> salaries) {
 		this.salaries = salaries;
 	}
+
 
 	
 	

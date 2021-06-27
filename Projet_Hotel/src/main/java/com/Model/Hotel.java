@@ -39,9 +39,9 @@ public class Hotel {
 	private Directeur directeur;
 	
 	
-	
+	/* un Hotel contient plusieurs chambres */
 	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="chambre_id")
+	@JoinColumn(name="hotel_id")
 	private Set<Chambre> chambres;
 	
 

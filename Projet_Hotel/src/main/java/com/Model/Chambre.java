@@ -31,7 +31,7 @@ public class Chambre {
 	private float etage;
 	
 	
-	
+	/* Plusieurs chambres pour un et un seul Hotel */
 	@ManyToOne
 	private Hotel hotel;
 

@@ -37,7 +37,7 @@ public class Salarie {
 	private int experience;
 	
 	
-	
+	/* Plusieurs salaries pour un et un seul directeur */
 	@ManyToOne
 	private Directeur directeur;
 	

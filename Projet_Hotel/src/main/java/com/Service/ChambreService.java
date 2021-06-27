@@ -52,7 +52,7 @@ public class ChambreService {
 	
 	public List<Chambre> findAll(Session s){
 		
-		Query q = s.createQuery("from Produit");
+		Query q = s.createQuery("from Chambre");
 		List<Chambre> listeC = q.list();
 		return listeC;
 	}
